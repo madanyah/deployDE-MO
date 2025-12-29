@@ -163,8 +163,8 @@ async function sendToAPI() {
     // STEP 2: Send to Express backend
     console.log("📤 Sending audio to Express backend...");
 
-  
-    const res = await fetch("http://localhost:3000/api/predict/predict", {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${API_BASE_URL}/api/predict/predict`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

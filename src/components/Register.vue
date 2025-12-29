@@ -128,7 +128,9 @@ const handleRegister = async () => {
 
   try {
     // KIRIM KE BACKEND
-    const res = await fetch("http://localhost:3000/api/user/enter", {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${API_BASE_URL}/api/user/enter`, {
+    // const res = await fetch("http://localhost:3000/api/user/enter", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
